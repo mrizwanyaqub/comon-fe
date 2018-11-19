@@ -1,0 +1,5 @@
+<div [fxLayout]="layout" fxLayoutAlign="center" fxLayoutGap="5px">
+  <li *ngFor="let color of colors" >
+    <at-color [color]="color" (colorSelected)="handleColorSelected($event)" [showLabel]="showLabel"></at-color>
+  </li>
+</div>

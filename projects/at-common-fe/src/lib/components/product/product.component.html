@@ -1,0 +1,12 @@
+<div fxLayout="column" fxLayoutGap="5px" [ngStyle]="productStyle" [title]="product.name">
+  <slideshow [imageUrls]="product.media" [lazyLoad]="true" [height]="height" [minHeight]="height" [arrowSize]="arrowSize"></slideshow>
+  <span class="name" [ngStyle]="nameStyle">{{product.name | slice:0:45}}</span>
+  <div fxLayout="row" fxLayoutGap="5px">
+    <span class="price" [ngStyle]="priceStyle">{{product.price}} AED</span>
+    <div fxLayout="row" fxLayoutGap="2px" *ngIf="showAvailableColors && product.availableColors.length > 1">
+      <li *ngFor="let color of product.availableColors | slice:0:5" >
+        <at-color [color]="{color: color}" [showLabel]="false"></at-color>
+      </li>
+    </div>
+  </div>
+</div>

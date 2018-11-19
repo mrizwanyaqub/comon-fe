@@ -1,0 +1,8 @@
+<div fxLayout="row" fxLayoutGap="5px" (click)="clicked(color.color)" class="colorClass" [title]="showLabel ? '' : color.color">
+  <div #colorDiv class="color">
+    <div [ngStyle]="checkedStyle">
+      <i *ngIf="color.selected" class="fas fa-check"></i>
+    </div>
+  </div>
+  <div fxHide.lt-md="true" [fxShow]="showLabel" class="colorLabel">{{color.color}}</div>
+</div>
