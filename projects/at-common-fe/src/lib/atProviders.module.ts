@@ -1,6 +1,7 @@
 import { ModuleWithProviders, NgModule } from "@angular/core";
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AtConfigs, Api, Colors, Products } from './services';
+import { Api, Colors, Products } from './services';
+import { AtConfigs } from './services/configs';
 import { IConfigs } from './models';
 import { authInterceptor } from "./interceptors";
 
@@ -12,17 +13,17 @@ export class AtProvidersModule {
       ngModule:AtProvidersModule,
       providers: [
         {
+          provide: AtConfigs,
+          useValue: configs
+        },
+        {
           provide: HTTP_INTERCEPTORS,
           useClass: authInterceptor,
           multi: true
         },
         Api,
         Colors,
-        Products,
-        {
-          provide: AtConfigs,
-          useValue: configs
-        }
+        Products
       ]
     };
   }
